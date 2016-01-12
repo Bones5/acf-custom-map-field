@@ -133,10 +133,6 @@ class acf_field_openlayers_map extends acf_field {
 			'y'		=> ''
 		));
 		
-		// Save the map image to the field value for access with get_field()
-		$field['value']['map_image_url'] = 	wp_get_attachment_image_src($field[map_image], 'full')[0];
-		
-		
 		// vars
 		$atts = array(
 			'id'			=> $field['id'],
@@ -341,6 +337,10 @@ class acf_field_openlayers_map extends acf_field {
 	
 	
 	function load_value( $value, $post_id, $field ) {
+
+		echo '<pre>';
+			print_r($field);
+		echo '</pre>';
 
 		$dir = plugin_dir_url( __FILE__ );
 

@@ -340,6 +340,10 @@ class acf_field_openlayers_map extends acf_field {
 
 		$dir = plugin_dir_url( __FILE__ );
 
+		echo '<pre>';
+			print_r($field[map_image]);
+		echo '</pre>';
+
 		$map_image = wp_get_attachment_image_src($field[map_image], 'full');
 
 		echo '<pre>';

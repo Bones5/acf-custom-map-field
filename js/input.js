@@ -26,11 +26,11 @@
 		
 		acf.add_action('ready append', function( $el ){
 
-			console.log(phpVars);
-
 			// search $el for fields of type 'openlayers_map'
 			acf.get_fields({ type : 'openlayers_map'}, $el).each(function(){
-				
+
+				if(phpVars !=== undefined) console.log(phpVars);
+
 				initialize_field( $(this) );
 
 				/**

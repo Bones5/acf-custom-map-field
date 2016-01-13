@@ -340,15 +340,7 @@ class acf_field_openlayers_map extends acf_field {
 
 		$dir = plugin_dir_url( __FILE__ );
 
-		echo '<pre>';
-			print_r($field[map_image]);
-		echo '</pre>';
-
 		$map_image = wp_get_attachment_image_src($field[map_image], 'full');
-
-		echo '<pre>';
-			print_r($map_image);
-		echo '</pre>';
 
 		// Not currently used
 		// $pin_image = wp_get_attachment_image_src($field[pin_image], 'full');
@@ -358,10 +350,6 @@ class acf_field_openlayers_map extends acf_field {
 		    'mapImage'            => $map_image,
 		    'pinImage'            => $dir . 'images/map-pin.png',
 		);
-
-		echo '<pre>';
-			print_r($dataToBePassed);
-		echo '</pre>';
 
 		wp_localize_script( 'acf-input-openlayers_map', 'phpVars', $dataToBePassed );
 		

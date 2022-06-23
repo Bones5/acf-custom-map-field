@@ -141,19 +141,20 @@ class acf_field_openlayers_map extends acf_field {
 		
 		?>
 
-		<div <?php acf_esc_attr_e($atts); ?>>
-			
-			<div class="acf-hidden">
-				<?php foreach( $field['value'] as $k => $v ): ?>
-					<input type="hidden" id="input-<?php echo $k; ?>" name="<?php echo esc_attr($field['name']); ?>[<?php echo $k; ?>]" value="<?php echo esc_attr( $v ); ?>" />
-				<?php endforeach; ?>
-			</div>
+<div <?php acf_esc_attr_e($atts); ?>>
 
-			<div id="map" class="map"></div>
+    <div class="acf-hidden">
+        <?php foreach( $field['value'] as $k => $v ): ?>
+        <input type="hidden" id="input-<?php echo $k; ?>"
+            name="<?php echo esc_attr($field['name']); ?>[<?php echo $k; ?>]" value="<?php echo esc_attr( $v ); ?>" />
+        <?php endforeach; ?>
+    </div>
 
-		</div>
+    <div id="map" class="map"></div>
 
-		<?php
+</div>
+
+<?php
 	}
 	
 		
@@ -340,7 +341,7 @@ class acf_field_openlayers_map extends acf_field {
 
 		$dir = plugin_dir_url( __FILE__ );
 
-		$map_image = wp_get_attachment_image_src($field[map_image], 'full');
+		$map_image = wp_get_attachment_image_src($field['map_image'], 'full');
 
 		// Not currently used
 		// $pin_image = wp_get_attachment_image_src($field[pin_image], 'full');

@@ -349,9 +349,9 @@ class acf_field_openlayers_map extends acf_field {
 		// Pass php variables from our field to JS
 		$dataToBePassed = array(
 		    'mapImageUrl'            => $map_image[0],
-		    'mapImageWidth'            => $map_image[1],
-		    'mapImageHeight'            => $map_image[2],
-		    'pinImage'            => $dir . 'images/map-pin.png',
+		    'mapImageWidth'          => $map_image[1],
+		    'mapImageHeight'         => $map_image[2],
+		    'pinImage'            	 => $dir . 'images/map-pin.png',
 		);
 
 		wp_localize_script( 'acf-input-openlayers_map', 'phpVars', $dataToBePassed );

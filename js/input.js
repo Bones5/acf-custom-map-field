@@ -173,8 +173,8 @@
         var yCoord = parseFloat($("#input-y").val());
 
         // If no previous licatuion had been defined set it to the centre of the map
-        if (!xCoord) xCoord = mapWidth / 2;
-        if (!yCoord) yCoord = mapHeight / 2;
+        if (!xCoord || xCoord > mapWidth) xCoord = mapWidth / 2;
+        if (!yCoord || yCoord > mapHeight) yCoord = mapHeight / 2;
 
         var pointFeature = new ol.Feature(new ol.geom.Point([xCoord, yCoord]));
 

@@ -1,0 +1,34 @@
+{
+	"name": "acf-custom-map-field-field",
+	"version": "1.0.0",
+	"description": "",
+	"main": "assets/js/field.js",
+	"prettier": "@wordpress/prettier-config",
+	"scripts": {
+		"start": "wp-scripts start --webpack-src-dir='assets/js'",
+		"build": "wp-scripts build --webpack-src-dir='assets/js'",
+		"lint:js": "wp-scripts lint-js",
+		"lint:style": "wp-scripts lint-style",
+		"format:js": "wp-scripts format",
+		"lint:js:fix": "npm run lint:js -- --fix",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"test": "wp-scripts test-unit-js",
+		"test:e2e": "wp-scripts test-e2e",
+		"env:start": "wp-env start",
+		"env:start:debug": "wp-env start --xdebug",
+		"env:stop": "wp-env stop",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
+	},
+	"author": "Proper Design",
+	"license": "ISC",
+	"devDependencies": {
+		"@wordpress/scripts": "^26.11.0"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^6.38.0",
+		"@wordpress/element": "^5.18.0",
+		"@wordpress/hooks": "^3.41.0",
+		"ol": "^8.0.0"
+	}
+}

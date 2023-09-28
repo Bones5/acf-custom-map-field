@@ -42505,12 +42505,12 @@ __webpack_require__.r(__webpack_exports__);
       const mapCenter = [mapWidth / 2, mapHeight / 2];
 
       // Set the location of the pin if one has already been defined
-      if (!xCoord || xCoord > mapWidth) xCoord = mapWidth / 2;
-      if (!yCoord || yCoord > mapHeight) yCoord = mapHeight / 2;
+      const xCoord = parseFloat($('#input-x').val());
+      const yCoord = parseFloat($('#input-y').val());
 
       // If no previous licatuion had been defined set it to the centre of the map
-      if (!xCoord) xCoord = mapWidth / 2;
-      if (!yCoord) yCoord = mapHeight / 2;
+      if (!xCoord || xCoord > mapWidth) xCoord = mapWidth / 2;
+      if (!yCoord || yCoord > mapHeight) yCoord = mapHeight / 2;
       var pointFeature = new ol_Feature__WEBPACK_IMPORTED_MODULE_3__["default"](new ol_geom__WEBPACK_IMPORTED_MODULE_4__["default"]([xCoord, yCoord]));
       new ol_Map__WEBPACK_IMPORTED_MODULE_5__["default"]({
         interactions: (0,ol_interaction_js__WEBPACK_IMPORTED_MODULE_6__.defaults)().extend([new _olDragEvent__WEBPACK_IMPORTED_MODULE_2__["default"]()]),

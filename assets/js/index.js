@@ -22,16 +22,15 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
 ( function ( $ ) {
 	function initialize_field( $field ) {
 		apiFetch( { path: `/wp/v2/${ window.typenow }/` } )
-		.then( ( currentPostType ) => {
-
+			.then( ( currentPostType ) => {
 				// console.log( $field );
 
-		// const postType = select( editorStore ).getCurrentPost();
-		// console.log( postType );
+				// const postType = select( editorStore ).getCurrentPost();
+				// console.log( postType );
 
-			// console.log( currentPostType );
-			const mapImage = currentPostType[ 0 ]?.acf?.map_position?.map;
-			const pinImage = currentPostType[ 0 ]?.acf?.map_position?.pin;
+				// console.log( currentPostType );
+				const mapImage = currentPostType[ 0 ]?.acf?.map_position?.map;
+				const pinImage = currentPostType[ 0 ]?.acf?.map_position?.pin;
 
 				/**
 				 * $field is a jQuery object wrapping field elements in the editor.
@@ -49,12 +48,12 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
 				const mapCenter = [ mapWidth / 2, mapHeight / 2 ];
 
 				// Set the location of the pin if one has already been defined
-				if ( ! xCoord || xCoord > mapWidth ) xCoord = mapWidth / 2;
-				if ( ! yCoord || yCoord > mapHeight ) yCoord = mapHeight / 2;
+				const xCoord = parseFloat( $( '#input-x' ).val() );
+				const yCoord = parseFloat( $( '#input-y' ).val() );
 
 				// If no previous licatuion had been defined set it to the centre of the map
-				if ( ! xCoord ) xCoord = mapWidth / 2;
-				if ( ! yCoord ) yCoord = mapHeight / 2;
+				if ( ! xCoord || xCoord > mapWidth ) xCoord = mapWidth / 2;
+				if ( ! yCoord || yCoord > mapHeight ) yCoord = mapHeight / 2;
 
 				var pointFeature = new Feature(
 					new Point( [ xCoord, yCoord ] )

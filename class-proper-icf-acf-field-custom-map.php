@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * proper_icf_acf_field_custom_map_field class.
  */
-class proper_icf_acf_field_custom_map_field extends \acf_field {
+class proper_icf_acf_field_custom_map_field extends acf_field {
 	/**
 	 * Controls field type visibilty in REST requests.
 	 *
@@ -156,15 +156,15 @@ class proper_icf_acf_field_custom_map_field extends \acf_field {
 		));
 
 		?>
-		<div id=<?php echo $field['id'] ?> class="acf-custom-map-field-field <?php echo $field['class']?>">
-			<div id="map" class="map" style="height:400px; width:80%"></div>
-			<div class="acf-hidden">
+<div id=<?php echo $field['id'] ?> class="acf-custom-map-field-field <?php echo $field['class']?>">
+    <div id="map" class="map" style="height:400px; width:80%"></div>
+    <div class="acf-hidden">
         <?php foreach( $field['value'] as $k => $v ): ?>
         <input type="hidden" id="input-<?php echo $k; ?>"
             name="<?php echo esc_attr($field['name']); ?>[<?php echo $k; ?>]" value="<?php echo esc_attr( $v ); ?>" />
         <?php endforeach; ?>
-    	</div>
-		<?php
+    </div>
+    <?php
 	}
 
 	/**

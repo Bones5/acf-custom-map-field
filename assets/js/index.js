@@ -22,7 +22,7 @@ import defaultPin from '../images/map-pin.png';
 ( function ( $ ) {
 	function initialize_field( $field ) {
 		apiFetch( {
-			path: `/wp/v2/garden_area`,
+			path: `/wp/v2/posts`,
 		} )
 			.then( ( currentPostType ) => {
 				// console.log( $field );
@@ -39,7 +39,7 @@ import defaultPin from '../images/map-pin.png';
 				 */
 				const extent = [ 0, 0, mapImage[ 1 ], mapImage[ 2 ] ];
 				const projection = new Projection( {
-					code: 'xkcd-image',
+					code: 'map-image',
 					units: 'pixels',
 					extent: extent,
 				} );
@@ -48,7 +48,7 @@ import defaultPin from '../images/map-pin.png';
 				const mapWidth = mapImage[ 1 ];
 				const mapHeight = mapImage[ 2 ];
 				const mapCenter = [ mapWidth / 2, mapHeight / 2 ];
-				console.log( mapWidth );
+
 				// Set the location of the pin if one has already been defined
 				let xCoord = parseFloat( $( '#input-x' ).val() );
 				let yCoord = parseFloat( $( '#input-y' ).val() );

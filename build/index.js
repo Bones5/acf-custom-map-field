@@ -81,8 +81,8 @@ function handleDragEvent(evt) {
   this.coordinate_[1] = evt.coordinate[1];
   if (feature !== undefined) {
     // Set the hidden coordinates fields to the coords of the feature
-    $('#input-x').val(feature.getGeometry().flatCoordinates[0]);
-    $('#input-y').val(feature.getGeometry().flatCoordinates[1]);
+    document.getElementById('input-x').value = feature.getGeometry().flatCoordinates[0];
+    document.getElementById('input-y').value = feature.getGeometry().flatCoordinates[1];
   }
 }
 
@@ -42783,7 +42783,7 @@ __webpack_require__.r(__webpack_exports__);
 (function ($) {
   function initialize_field($field) {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
-      path: `/wp/v2/garden_area`
+      path: `/wp/v2/posts`
     }).then(currentPostType => {
       // console.log( $field );
 
@@ -42799,7 +42799,7 @@ __webpack_require__.r(__webpack_exports__);
        */
       const extent = [0, 0, mapImage[1], mapImage[2]];
       const projection = new ol_proj__WEBPACK_IMPORTED_MODULE_1__.Projection({
-        code: 'xkcd-image',
+        code: 'map-image',
         units: 'pixels',
         extent: extent
       });
@@ -42808,7 +42808,7 @@ __webpack_require__.r(__webpack_exports__);
       const mapWidth = mapImage[1];
       const mapHeight = mapImage[2];
       const mapCenter = [mapWidth / 2, mapHeight / 2];
-      console.log(mapWidth);
+
       // Set the location of the pin if one has already been defined
       let xCoord = parseFloat($('#input-x').val());
       let yCoord = parseFloat($('#input-y').val());

@@ -80,8 +80,10 @@ function handleDragEvent( evt ) {
 
 	if ( feature !== undefined ) {
 		// Set the hidden coordinates fields to the coords of the feature
-		$( '#input-x' ).val( feature.getGeometry().flatCoordinates[ 0 ] );
-		$( '#input-y' ).val( feature.getGeometry().flatCoordinates[ 1 ] );
+		document.getElementById( 'input-x' ).value =
+			feature.getGeometry().flatCoordinates[ 0 ];
+		document.getElementById( 'input-y' ).value =
+			feature.getGeometry().flatCoordinates[ 1 ];
 	}
 }
 

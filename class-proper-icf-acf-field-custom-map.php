@@ -196,7 +196,7 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 		wp_register_script(
 			'proper_icf-custom-map',
 			"{$url}build/index.js",
-			array( 'acf-input' ),
+			array( 'acf-input', "wp-api-fetch" ),
 			$version
 		);
 

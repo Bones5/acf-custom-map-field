@@ -1,6 +1,5 @@
-import apiFetch from '@wordpress/api-fetch';
-
 import Feature from 'ol/Feature';
+import apiFetch from '@wordpress/api-fetch';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import { Point } from 'ol/geom';
@@ -14,6 +13,7 @@ import { Projection } from 'ol/proj';
 import { getCenter } from 'ol/extent';
 import Drag from './olDragEvent';
 import { defaults as defaultInteractions } from 'ol/interaction.js';
+import defaultPin from '../images/map-pin.png';
 // import { select } from '@wordpress/data';
 // import { store as editorStore } from '@wordpress/editor';
 /**
@@ -21,7 +21,7 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
  */
 ( function ( $ ) {
 	function initialize_field( $field ) {
-		apiFetch( { path: `/wp/v2/${ window.typenow }/` } )
+		apiFetch( { path: `/wp/v2/posts/` } )
 			.then( ( currentPostType ) => {
 				// console.log( $field );
 
@@ -48,8 +48,8 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
 				const mapCenter = [ mapWidth / 2, mapHeight / 2 ];
 
 				// Set the location of the pin if one has already been defined
-				const xCoord = parseFloat( $( '#input-x' ).val() );
-				const yCoord = parseFloat( $( '#input-y' ).val() );
+				let xCoord = parseFloat( $( '#input-x' ).val() );
+				let yCoord = parseFloat( $( '#input-y' ).val() );
 
 				// If no previous licatuion had been defined set it to the centre of the map
 				if ( ! xCoord || xCoord > mapWidth ) xCoord = mapWidth / 2;
@@ -79,7 +79,7 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
 							style: new Style( {
 								image: new Icon( {
 									opacity: 0.95,
-									src: pinImage,
+									src: pinImage ? pinImage : defaultPin,
 									anchor: [ 0.5, 1 ],
 								} ),
 							} ),
@@ -100,6 +100,7 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
 		 * Run initialize_field when existing fields of this type load,
 		 * or when new fields are appended via repeaters or similar.
 		 */
+		console.log( 'bum' );
 		acf.add_action( 'ready_field/type=custom_map_field', initialize_field );
 		acf.add_action(
 			'append_field/type=custom_map_field',

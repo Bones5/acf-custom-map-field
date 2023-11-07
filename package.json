@@ -1,5 +1,5 @@
 {
-	"name": "acf-custom-map-field-field",
+	"name": "acf-custom-map-field",
 	"version": "1.0.0",
 	"description": "",
 	"main": "assets/js/field.js",

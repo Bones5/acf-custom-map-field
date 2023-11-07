@@ -90,7 +90,7 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 		);
 
 		$this->env = array(
-			'url'     => site_url( str_replace( ABSPATH, '', __DIR__ ) ), // URL to the acf-custom-map-field-field directory.
+			'url'     => site_url( str_replace( ABSPATH, '', __DIR__ ) ), // URL to the acf-custom-map-field directory.
 			'version' => '1.0', // Replace this with your theme or plugin version constant.
 		);
 
@@ -156,12 +156,7 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 		));
 
 		?>
-<div id=<?php echo $field['id'] ?> class="acf-custom-map-field-field <?php echo $field['class']?>">
-    <?php 
-echo '<pre>';
-print_r($field);
-echo '</pre>';
-?>
+<div id=<?php echo $field['id'] ?> class="acf-custom-map-field <?php echo $field['class']?>">
     <div id="map" class="map" style="height:400px; width:80%"></div>
     <div class="acf-hidden">
         <?php foreach( $field['value'] as $k => $v ): ?>

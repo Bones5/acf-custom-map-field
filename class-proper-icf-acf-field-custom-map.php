@@ -157,6 +157,11 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 
 		?>
 <div id=<?php echo $field['id'] ?> class="acf-custom-map-field-field <?php echo $field['class']?>">
+    <?php 
+echo '<pre>';
+print_r($field);
+echo '</pre>';
+?>
     <div id="map" class="map" style="height:400px; width:80%"></div>
     <div class="acf-hidden">
         <?php foreach( $field['value'] as $k => $v ): ?>
@@ -177,9 +182,18 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 		 */
 		public function format_value_for_rest( $value, $post_id, array $field ) {
 			// Adds map image from the field option to the rest API
-			$value['map'] = wp_get_attachment_image_src($field['map_image'], "small");
-			$value['pin'] = wp_get_attachment_image_src($field['pin_image'], "thumbnail");
-			return $value;
+			$return_value = array();
+		
+			$return_value['map'] = wp_get_attachment_image_src($field['map_image'], 'large');
+			if ($field['value']){
+
+				$return_value['x'] = $field['value']['x'] ? maybe_unserialize($field['value']['x']) : '' ;
+				$return_value['y'] = $field['value']['y'] ?  maybe_unserialize($field['value']['y']) : '';
+			}
+			$return_value['pin'] = wp_get_attachment_image_src($field['pin_image']) ? wp_get_attachment_image_src($field['pin_image']) : $this->env['url'] . '/assets/images/map-pin.png';
+			
+			return $return_value;
+		
 		}
 
 	/**

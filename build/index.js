@@ -42783,7 +42783,7 @@ __webpack_require__.r(__webpack_exports__);
 (function ($) {
   function initialize_field($field) {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
-      path: `/wp/v2/posts/`
+      path: `/wp/v2/garden_area`
     }).then(currentPostType => {
       // console.log( $field );
 
@@ -42808,7 +42808,7 @@ __webpack_require__.r(__webpack_exports__);
       const mapWidth = mapImage[1];
       const mapHeight = mapImage[2];
       const mapCenter = [mapWidth / 2, mapHeight / 2];
-
+      console.log(mapWidth);
       // Set the location of the pin if one has already been defined
       let xCoord = parseFloat($('#input-x').val());
       let yCoord = parseFloat($('#input-y').val());
@@ -42851,7 +42851,7 @@ __webpack_require__.r(__webpack_exports__);
      * Run initialize_field when existing fields of this type load,
      * or when new fields are appended via repeaters or similar.
      */
-    console.log('bum');
+    // console.log( 'bum' );
     acf.add_action('ready_field/type=custom_map_field', initialize_field);
     acf.add_action('append_field/type=custom_map_field', initialize_field);
   }

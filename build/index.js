@@ -42783,7 +42783,7 @@ __webpack_require__.r(__webpack_exports__);
 (function ($) {
   function initialize_field($field) {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
-      path: `/wp/v2/posts`
+      path: `/wp/v2/${window.typenow}`
     }).then(currentPostType => {
       // console.log( $field );
 
@@ -42793,7 +42793,7 @@ __webpack_require__.r(__webpack_exports__);
       // console.log( currentPostType );
       const mapImage = currentPostType[0]?.acf?.map_position?.map;
       const pinImage = currentPostType[0]?.acf?.map_position?.pin;
-
+      console.log(mapImage);
       /**
        * $field is a jQuery object wrapping field elements in the editor.
        */

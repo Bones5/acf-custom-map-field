@@ -150,13 +150,18 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 		// Debug output to show what field data is available.
 		
 				// value
-		$field['value'] = acf_parse_args($field['value'], array(
+		$field['value'] = acf_parse_args(maybe_unserialize($field['value']), array(
 			'x'		=> '',
 			'y'		=> ''
 		));
 
 		?>
 <div id=<?php echo $field['id'] ?> class="acf-custom-map-field <?php echo $field['class']?>">
+    <?php 
+echo '<pre>';
+print_r($field);
+echo '</pre>';
+?>
     <div id="map" class="map" style="height:400px; width:80%"></div>
     <div class="acf-hidden">
         <?php foreach( $field['value'] as $k => $v ): ?>
@@ -180,11 +185,10 @@ class proper_icf_acf_field_custom_map_field extends acf_field {
 			$return_value = array();
 		
 			$return_value['map'] = wp_get_attachment_image_src($field['map_image'], 'large');
-			if ($field['value']){
-
-				$return_value['x'] = $field['value']['x'] ? maybe_unserialize($field['value']['x']) : '' ;
-				$return_value['y'] = $field['value']['y'] ?  maybe_unserialize($field['value']['y']) : '';
-			}
+			
+				// $return_value['x'] = $field['value']['x'] ? maybe_unserialize($field['value']['x']) : '' ;
+				// $return_value['y'] = $field['value']['y'] ?  maybe_unserialize($field['value']['y']) : '';
+		
 			$return_value['pin'] = wp_get_attachment_image_src($field['pin_image']) ? wp_get_attachment_image_src($field['pin_image']) : $this->env['url'] . '/assets/images/map-pin.png';
 			
 			return $return_value;
